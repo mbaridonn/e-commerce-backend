@@ -27,6 +27,7 @@ namespace e_commerce_backend
         {
             services.AddDbContext<EcommerceContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddCors();
             services.AddMvc();
         }
 
@@ -37,7 +38,11 @@ namespace e_commerce_backend
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
             app.UseMvc();
         }
     }
