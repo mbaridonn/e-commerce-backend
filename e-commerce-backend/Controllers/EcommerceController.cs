@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using e_commerce_backend.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,6 +12,13 @@ namespace e_commerce_backend.Controllers
     [Route("api/ecommerce")]
     public class EcommerceController : Controller
     {
+        private readonly EcommerceContext _context;
+
+        public EcommerceController(EcommerceContext context)
+        {
+            _context = context;
+        }
+
         // GET: api/<controller>
         [HttpGet]
         public IEnumerable<string> Get()

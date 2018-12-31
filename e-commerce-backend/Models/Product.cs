@@ -10,7 +10,7 @@ namespace e_commerce_backend.Models
         public long Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
-        public float Price { get; set; }
+        public double Price { get; set; }
         public string ImageUrl { get; set; }
     }
 }
